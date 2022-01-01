@@ -1,0 +1,12 @@
+export const PORT =  process.env.PORT;
+
+export const SECRET_KEY = process.env.SECRET_KEY;
+
+export const DATABASE_CONFIGS = {
+  MY_STOCK_DB: {
+    NAME: process.env.DATABASE_CONFIGS_MY_STOCK_DB_NAME,
+    USERNAME: process.env.DATABASE_CONFIGS_MY_STOCK_DB_USERNAME,
+    PASSWORD: process.env.DATABASE_CONFIGS_MY_STOCK_DB_PASSWORD,
+    HOSTNAME: process.env.DATABASE_CONFIGS_MY_STOCK_DB_HOSTNAME,
+  },
+};
