@@ -1,11 +1,11 @@
 import { autoBind } from '../utils.js';
+import Logger from '@bidask/logger';
 import { ErrorController } from '../controllers/error.js';
-import * as Logger from '../logger.js';
 
 export class ErrorMiddleware {
   constructor() {
     autoBind(this);
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.controller = new ErrorController();
   }
 

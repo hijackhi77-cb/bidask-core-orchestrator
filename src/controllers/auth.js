@@ -1,4 +1,4 @@
-import * as Logger from '../logger.js';
+import Logger from '@bidask/logger';
 import * as DatabaseClient from '../clients/DatabaseClient.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
@@ -7,7 +7,7 @@ import Chance from 'chance';
 
 export class AuthController {
   constructor() {
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.dbClient = DatabaseClient.getInstance();
   }
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import router from './routes.js';
-import * as Logger from './logger.js';
-const logger = Logger.getInstance();
+import Logger from '@bidask/logger';
+const logger = new Logger({ name: 'app.js' });
 import { PORT } from './constants.js';
 
 const app = express();

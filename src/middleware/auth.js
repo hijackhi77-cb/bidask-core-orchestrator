@@ -1,11 +1,11 @@
 import { autoBind } from '../utils.js';
-import * as Logger from '../logger.js';
+import Logger from '@bidask/logger';
 import { AuthController } from '../controllers/auth.js';
 
 export class AuthMiddleware {
   constructor() {
     autoBind(this);
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.controller = new AuthController();
   }
 
@@ -48,10 +48,9 @@ export class AuthMiddleware {
   }
 
   decodeToken(req, res, next) {
-    const bearerHeader = req.headers.authorization;
+    const bearerHeader = req?.headers?.authorization;
     // Format: Bearer <token>
-    const bearer = bearerHeader.split(' ');
-    const bearerToken = bearer[1];
+    const bearerToken = bearerHeader?.split(' ')?.[1];
     const result = this.controller.decodeToken(bearerToken);
     if (result?.hasValidToken) {
       const { user } = result;

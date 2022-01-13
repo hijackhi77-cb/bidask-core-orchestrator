@@ -1,10 +1,10 @@
+import Logger from '@bidask/logger';
 import MongoClient from 'mongodb';
 import { DATABASE_CONFIGS } from '../constants.js';
-import * as Logger from '../logger.js';
 
 class DatabaseClient {
   constructor() {
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.DB_CONFIG = DATABASE_CONFIGS.MY_STOCK_DB;
     const { USERNAME, PASSWORD, HOSTNAME } = this.DB_CONFIG;
     this.uri = `mongodb+srv://${USERNAME}:${PASSWORD}@${HOSTNAME}`;
