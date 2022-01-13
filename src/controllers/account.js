@@ -1,10 +1,10 @@
-import * as Logger from '../logger.js';
+import Logger from '@bidask/logger';
 import * as DatabaseClient from '../clients/DatabaseClient.js';
 import { AuthController } from './auth.js';
 
 export class AccountController {
   constructor() {
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.dbClient = DatabaseClient.getInstance();
   }
 

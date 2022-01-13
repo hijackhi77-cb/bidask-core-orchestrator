@@ -1,7 +1,7 @@
-import * as Logger from '../logger.js';
+import Logger from '@bidask/logger';
 
 export class ErrorController {
   constructor() {
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
   }
 }

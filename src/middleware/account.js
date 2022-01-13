@@ -1,11 +1,11 @@
 import { autoBind } from '../utils.js';
-import * as Logger from '../logger.js';
+import Logger from '@bidask/logger';
 import { AccountController } from '../controllers/account.js';
 
 export class AccountMiddleware {
   constructor() {
     autoBind(this);
-    this.logger = Logger.getInstance();
+    this.logger = new Logger({ name: this.constructor.name });
     this.controller = new AccountController();
   }
 
